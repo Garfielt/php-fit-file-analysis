@@ -1109,7 +1109,7 @@ class phpFITFileAnalysis
         if (empty($file_path)) {
             throw new \Exception('phpFITFileAnalysis->__construct(): file_path is empty!');
         }
-        if (!file_exists($file_path)) {
+        if (strpos($file_path, "http") === false && !file_exists($file_path)) {
             throw new \Exception('phpFITFileAnalysis->__construct(): file \''.$file_path.'\' does not exist!');
         }
         $this->options = $options;
